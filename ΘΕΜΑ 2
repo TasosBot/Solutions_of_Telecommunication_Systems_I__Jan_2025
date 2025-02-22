@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[greek, english]{babel}
+\usepackage{amsmath}
+\usepackage{greek}
+\usepackage{kerkis}
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{alphabeta}
+\usepackage{gensymb}
+
+
+\begin{document}
+\section*{ΘΕΜΑ 2}
+
+\\
+\graphicspath{}
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{Thema 2.png}
+\end{figure}
+
+\section*{Α.}
+\section*{a)}
+Αρχικά θα βρούμε την σταθερά ευαισθησίας συχνότητας η οπόια είναι ίση με \[
+K_{f}=\frac{\Delta f_{i}}{V_{i}}=\frac{5 kHz}{1.5mV}=
+\boldsymbol{\frac{10}{3}10^{6} \hspace{5} Hz/Volt
+}\]
+Στη συνέχεια θα βρούμε την συχνότητα $f_{m}$ του σήματος η οποία είναι ίση  με \[
+f_{m}=\frac{12.85}{2\pi}10^{6} Hz
+\]
+\\
+Από το $K_{f}$ μπορούμε να πάρουμε το β απευθείας από την σχέση \[
+\beta=\frac{K_{f}A_{m}}{f_{m}}
+\]
+Επίσης από την εκφώνηση θέλουμε το ενεργό εύρος ζώνης του διαμορφωμένου  σήματος να μικρότερο ή ίσο του 5\% του $f_{m}$, δηλαδή μικρότερο από το 0.05 του $f_{c}$.Από τον κανόνα του $Carson \ \Beta=2f_{m}(\beta+1)$  έχουμε: \[
+\Beta=2f_{m}(\beta+1) \]\[
+2f_{m}(\beta+1)\leq0.05f_{c}
+\]
+\[
+\beta+1 \leq\frac{0.05f_{c}}{2f_{m}}=\frac{0.05*90*10^{6}}{2*\frac{12.85}{2\pi}*10^{6}}=1.1000168...
+\]
+Άρα \[
+\beta\leq0.1000168...=0.1
+\] ή \[
+\beta_{max}=0.1
+\]
+Από την παραπάνω σχέση για το β μπορούμε να υπολογίσουμε απευθείας το $A_{max}$. Έτσι: \[
+A_{max}=\frac{\beta_{max}*fm}{K_{f}}=\frac{0.1*\frac{12.85}{2*\pi}*10^{6}}{\frac{10}{3}*10^{6}}=\fbox{\boldsymbol{0.061354 Volt}}
+\]
+\section*{Β.}
+\section*{β)}
+Επειδή \[
+f_{if}>f_{c}
+\] και
+\[
+f_{l}=f_if-f_{c}=(98-90=8 MHz)
+\]
+έχουμε άνω μετατροπή με έγχυση χαμηλής ζώνης. Άρα για την (κεντρική)  εικονική συχνότητα έχουμε:
+\[
+f_{im}=2f_{if}-f_{c}=196-90=\fbox{\boldsymbol{106MHz}}
+\]
+Αν λάβουμε υπόψιν και το εύρος του σήματος πλήροφορίας \[
+f_{m}=\frac{12.85}{2\pi}=2.04514MHz
+\]
+μπορούμε να δούμε ότι \[
+f_{im,min}=106-2.04514=103.95486MHz
+\] και
+\[
+f_{im,max}=106+2.04514=108.04514MHz
+\]
+Άρα σε \textbf{καμία περίπτωση του σήματος πληροφορίας δεν έχουμε παρεμβολή εικονικής συχνότητας} αφού το $RF$ Φίλτρο αποκόπτει συχνότητες πέρα από τα $100MHz$
+
+\section*{γ)}
+Έχουμε βρει από το πρώτο υποερώτημα ότι $β_{max}=0.1$. Εδώ από την εκφώνηση θεωρούμε ότι $0.1\ll1$. Άρα έχουμε μια περίπτωση διαμόρφωσης $NBFM$ αφού  $β<<1$
+
+Για διευκόλυνση πράξεων θα βρω αρχικά το σήμα $φ(t)$. (δεν είναι απαραίτητο αλλά θα μειώσει τις πράξεις για να πάρω έτοιμο τύπο). Γενικά είναι \[
+ \phi(t)=2\pi K_{f}\int_{-\infty}^{\tau} m(\tau) \,d\tau\)=2\pi K_{f}\int_{-\infty}^{\tau} A_{max}cos2\pi f_{m}\tau  \,d\tau\=\frac{A_{max}K_{f}}{f_{m}}sin2\pi f_{m}t
+\]
+Το διαμορφωμένο κατά $NBFM$ σήμα θα είναι (σχέση 4.139 του βιβλίου. Παραλείπω την ανάλυση) \[
+X(F)=\frac{A_{c}}{2}\delta(f-f_{c})+\frac{A_{c}}{2}\delta(f+f_{c})+ \frac{jA_{c}}{2}\Phi(f-f_{c})-\frac{jA_{c}}{2}\Phi(f-f_{c})=\]
+$
+=\frac{A_{c}}{2}\delta(f-f_{c})+\frac{A_{c}}{2}\delta(f+f_{c})+\frac{A_{max}K_{f}}{f_{m}} \frac{jA_{c}}{2}[\frac{1}{2j}[\delta(f-f_{c}-f_{m})-\delta(f-f_{c}+f_{m})]]-\frac{jA_{c}}{2}[\frac{1}{2j}[\delta(f+f_{c}-f_{m})-\delta(f+f_{c}+f_{m})]] \hspace{8} (1)
+$
+\\
+\\
+(Υπενθύμιση: Ο $FT$ του $sin2\pi f_{0}t$ είναι \[
+FT(sin2\pi f_{0}t)=\frac{1}{2j}*(\delta(f-f_{0})-\delta(f+f_{0}))
+\]
+
+Το $X(F)$ της σχέσης (1) θα περάσει από τον ταλαντωτή με $FT$ \[
+FT(cos2\pi f_{l}t)=\frac{1}{2}(\delta(f-f_{l})+\delta(f+f_{l}))
+\]
+Επομένως, όλες οι συναρτήσεις θα μετακινηθούν κατά +$f_{l}$ και $-f_{l}$ και θα υποδιπλασιάσουν τα πλάτη τους
+Αν ονομάσω $Y(F)$ το σήμα μετά τον ταλαντωτή θα έχω (τα $j$ απλοποιούνται) \\
+$
+Y(F)=\frac{1}{2}[\frac{A_{c}}{2}\delta(f-f_{c}-f_{l})+\frac{A_{c}}{2}\delta(f+f_{c}-f_{l})+\frac{A_{max}K_{f}}{f_{m}} \frac{A_{c}}{2}[\frac{1}{2}[\delta(f-f_{c}-f_{m}-f_{l})-\delta(f-f_{c}+f_{m}-f_{l})]]-\frac{A_{c}}{2}[\frac{1}{2}[\delta(f+f_{c}-f_{m}-f_{l})-\delta(f+f_{c}+f_{m}-f_{l})]]ww+\frac{A_{c}}{2}\delta(f-f_{c}+f_{l})+\frac{A_{c}}{2}\delta(f+f_{c}+f_{l})+\frac{A_{max}K_{f}}{f_{m}} \frac{A_{c}}{2}[\frac{1}{2}[\delta(f-f_{c}-f_{m}+f_{l})-\delta(f-f_{c}+f_{m}+f_{l})]]-\frac{A_{c}}{2}[\frac{1}{2}[\delta(f+f_{c}-f_{m}+f_{l})-\delta(f+f_{c}+f_{m}+f_{l})]]]
+$
+\\
+\\
+Αν κάνουμε τις επιμεριστικές για να πάρουμε το πλάτος κάθε όρου θα έχουμε: \\
+$
+Y(F)=\frac{A_{c}}{4}\delta(f-f_{c}-f_{l})+\frac{A_{c}}{4}\delta(f+f_{c}-f_{l})+\frac{A_{max}K_{f}A_{c}}{8f_{m}} \delta(f-f_{c}-f_{m}-f_{l})-\frac{A_{max}K_{f}A_{c}}{8f_{m}}\delta(f-f_{c}+f_{m}-f_{l})-\frac{A_{max}K_{f}A_{c}}{8f_{m}}\delta(f+f_{c}-f_{m}-f_{l})-\frac{A_{max}K_{f}A_{c}}{8f_{m}}\delta(f+f_{c}+f_{m}-f_{l})+\frac{A_{c}}{4}\delta(f-f_{c}+f_{l})+\frac{A_{c}}{4}\delta(f+f_{c}+f_{l})+\frac{A_{max}K_{f}A_{c}}{8f_{m}} \delta(f-f_{c}-f_{m}+f_{l})-\frac{A_{max}K_{f}A_{c}}{8f_{m}}\delta(f-f_{c}+f_{m}+f_{l})-\frac{A_{max}K_{f}A_{c}}{8f_{m}}\delta(f+f_{c}-f_{m}+f_{l})-\frac{A_{max}K_{f}A_{c}}{8f_{m}}\delta(f+f_{c}+f_{m}+f_{l})
+$
+\\ \\
+Τα πλάτη των ώσεων που υπάρχουν θα υπολογιστούν (για να γίνει ο σχεδιασμός):
+\[
+\frac{A_{c}}{4}=\frac{6}{4}=1.5 \]
+\[
+\frac{A_{max}K_{f}A_{c}}{8f_{m}}=0.075 
+\]
+Οι ώσεις που ζητείται να σχεδιαστούν είναι στις θετικές συχνότητες,  δηλαδή εκείνες που είναι στο ημιεπίπεδο (και άρα αυτές που έχουν $-f_{c}$ αφού το $-f_{c}$ θα εξασφαλίζει ότι βρίσκονται στο θετικό ημιεπίπεδο.(Στο σχήμα δεν αντικαθιστώ τις συχνότητες αλλά αυτές είναι $f_{c}=90MHz$, $f_{l}=8MHz$,$f_{m}=2.04MHz$ περίπου.
+\\
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{ωσεις θεμα2.png}
+    
+    \label{fig:enter-label}
+\end{figure}
+
+
+\end{document}
