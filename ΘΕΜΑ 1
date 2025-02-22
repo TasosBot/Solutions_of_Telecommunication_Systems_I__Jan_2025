@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[greek, english]{babel}
+\usepackage{amsmath}
+\usepackage{greek}
+\usepackage{kerkis}
+
+
+
+\begin{document}
+\title\textbf{{ΛΥΣΕΙΣ ΤΗΛΕΠΙΚΟΙΝΩΝΙΑΚΩΝ ΣΥΣΤΗΜΑΤΩΝ ΙΑΝΟΥΑΡΙΟΥ 2025}}
+
+
+(Οι παρακάτω λύσεις είναι ενδεικτικές και ενδέχεται να υπάρχουν λάθη)
+
+\section*{Θέμα 1}
+
+
+\graphicspath{}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.1\linewidth]{ΘΕΜΑΤΑ ΤΗΛΕΠ/Thema 1.png}
+    
+    
+\end{figure}
+\section*{α)}
+Στο σχήμα μας δίνεται το φάσμα ενός σήματος $x(t)$ αφού αυτό διέλθει από το Μη Γραμμικό Στοιχείο του οποίου η συνάρτηση δίνεται από τη σχέση 
+\begin{center}
+    \[y(t)=\alpha x^{2}+\beta x(t)\]
+\end{center} 
+Για να μπορέσουμε να βρούμε τα α,β,$A_{c}$, πρέπει να πάρουμε τον Μετασχηματισμό $Fourier$ του $y(t)$
+Έχουμε:
+\begin{center}
+$Y(F)=aFT(x^{2}(t))+βX(F)$     ,όπου $x(t)=m(t)+c(t)=m(t)+A_{c}cos(2\pi f_{c}t)$
+\end{center}
+Θα εκτελέσουμε τις πράξεις για την $Y(F)$:\\
+\begin{math}
+Y(F)=aFT((m(t)+A_{c})^{2})+\beta M(F)+\frac{\beta}{2}(\delta(f-f_{c}))+\delta(f+f_{c}))+\beta M(F)=\\
+=αFT(m^{2}(t)+2m(t)A_{c}cos2\pi f_{c}+A_{c}^{2}cos^{2}2\pi f_{c}t)+\frac{\beta}{2}(\delta(f-f_{c}))+\delta(f+f_{c}))+\beta M(F)=\\
+αFT(m^{2})(t)+2\alpha FT(m(t))*\frac{A_{c}}{2}(\delta(f-f_{c})+\delta(f+f_{c})+\frac{A_{c}^{2}\alpha}{4}((\delta(f-f_{c})+\delta(f+f_{c}))*((\delta(f-f_{c})+\delta(f+f_{c}))+\frac{\beta}{2}(\delta(f-f_{c}))+\delta(f+f_{c}))+\beta M(F)=\\
+αFT(m^{2})(t)+2\alpha M(F)*\frac{A_{c}}{2}(\delta(f-f_{c})+\delta(f+f_{c})+\frac{A_{c}^{2}\alpha}{4}((\delta(f-2f_{c}))+\delta(f+2f_{c}))+2\delta(f)+\frac{\beta}{2}(\delta(f-f_{c}))+\delta(f+f_{c}))+\beta M(F)=\\
+αFT(m^{2})(t)+A_{c}\alpha (M(f-f_{c})+M(f+f_{c}))+\frac{A_{c}^{2} \alpha}{4}((\delta(f-2f_{c})+\delta(f+2f_{c}))+2\delta(f))+\frac{\beta}{2}(\delta(f-f_{c}))+\delta(f+f_{c}))+\beta M(F)
+\end{math}  
+\\
+\\
+Από αυτήν την τελευταία σχέση\\
+\begin{math}
+   Y(F)=αFT(m^{2}(t))+A_{c}\alpha (M(f-f_{c})+M(f+f_{c}))+\frac{A_{c}^{2} \alpha}{4}((\delta(f-2f_{c})+\delta(f+2f_{c}))+2\delta(f))+\frac{\beta}{2}(\delta(f-f_{c}))+\delta(f+f_{c}))+\beta M(F) 
+ \hspace{15} (1) 
+\end{math}
+ 
+\\
+θα αντλήσουμε πληροφορίες για τα α,β,$A_{c}$ καθώς και για το $m(t)$ \\ \\
+
+Αρχικά, λόγω του τετραγωνικού παλμού γύρω από το 0 και λόγω της έλλειψης $W$ καταλαβαίνουμε ότι το $M(F)=rect(f/4W)$ \\
+Άρα \[
+\fbox{\boldsymbol{m(t)=4W sinc(4Wt)}}
+\]
+Επιπλέον, έχουμε:
+\[
+m^{2}(t)=16W^{2} sinc^{2}(4Wt)
+\]
+και άρα \[
+M^{2}(F)=\frac{16W^{2}}{4W}tri(\frac{f}{4W})=4Wtri(\frac{f}{4W})
+\]
+που μέσω της σχέσης (1) δικαιολογεί την ύπαρξη του τριγωνικού παλμού από $-4W$ ως $4W$.
+\\
+Στον υπολογισμό τον α,β τώρα έχουμε: \textbf{ \[
+\fbox{\boldsymbol{ \beta=2}}
+\]}
+λόγω της (1) και του όρου $\beta M(F)$ και του σχήματος
+\\
+Επιπλέον, λόγω του όρου $\alpha FT(m^{2}(t))$ και του σχήματος έχουμε:\[
+4W\alpha=8W => \fbox{\boldsymbol{\alpha=2}}
+\]
+Ακόμη, δίνεται ότι \[
+\alpha A_{c}=4 => \fbox{\boldsymbol{A_{c}=2}}
+\]
+\\
+\\
+Στο μεταξύ, στο δοθέν φάσμα βλέπουμε και τους άλλους όρους της (1), όπως τους τετραγωνικούς παλμούς γύρω από τις συχνότητες $-f{c}$ και $f{c}$.Το μόνο που λείπει από την σχέση (1) είναι οι διάφορες ώσεις (τελευταίο ζητούμενο). Αν προσθέσουμε τις ώσεις από την σχέση (1), με κατάλληλες αντικαταστάσεις έχουμε το παρακάτω σχήμα:
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.1\linewidth]{ωσεις θεμα 1.png}
+    
+    
+\end{figure}
+\\
+\\
+Αξίζει να σημειωθεί ότι τα πλάτη των ώσεων προκύπτουν άμεσα από τη σχέση (1).
+
+\section*{β)}
+Είναι γνωστό ότι τα τα διαμορφωμένα κατα  $AM-DSB-TC$ σήματα έχουν την μορφή 
+\[
+z(t)=(A_{c}+m(t))cos2\pi f_{c}t=\\A_{c}cos2\pi f_{c}t+m(t)cos2\pi f_{c}t
+\]
+\\
+Στο πεδίο της συχνότητας:\[
+Z(F)=\frac{A_{c}}{2}(\delta(f-f_{c}))+\delta(f+f_{c}))+ \frac{1}{2}(M(f-f_{c}))+M(f+f_{c}))
+\]
+
+\\
+Το ζητούμενο για να έχουμε διαμόρφωση $AM$ είναι να πάρουμε στην έξοδο της διάταξης το παραπάνω σήμα. Άρα θα πάρουμε ένα ζωνοπερατό φίλτρο γύρω από την συχνότητα $f_{c}$ με συνολικό εύρος 4$W$. Αν το κάνουμε αυτό θα πάρουμε τον ορθογωνικό παλμό πλάτους 4. Όμως θέλουμε πλάτος $\frac {1}{2}$. Άρα, η ενίσχυση θα είναι $\frac{1}{8}$
+\[
+\centering
+\fbox{\boldsymbol{H(f)=\left\{\begin{matrix}
+\frac{1}{8} &, f_{c}-2W<f_{c}<f_{c}+2W\\
+0&, \alpha\lambda\lambda o\upsilon
+\end{matrix}\right. }}
+\]
+
+\section*{γ)}
+Για να μπορεί να ανακτηθεί το σήμα θα πρέπει μετά το $BPF$ να πάρουμε το σήμα χωρίς παρεμβολές $(alliasing)$. Για να συμβεί αυτό πρέπει να εξασφαλιστεί ότι δεν θα επικαλύπονται τα φάσματα του τριγωνικού και του ορθογωνικού παλμού. Άρα πρέπει να ικανοποίειται η ανίσωση:  \[
+f_{c}-2W>4W => \fbox{\boldsymbol{f_{c}>6W}}
+\]
+\\
+Αντίστοιχα, για να πιάσει η διαμόρφωση $AM$ (δηλαδή να μην έχουμε υπερδιαμόρφωση στην προκειμένη περίπτωση) πρέπει ο δείκτης διαμόρφωσης να είναι μικρότερος της μονάδας. Έτσι: \[
+\mu=\frac{|min(m(t)|}{Ac}<1  \hspace{12}=> \frac{|4W*(-0.2)|}{2}<1\]
+Άρα:
+\[
+\fbox{\boldsymbol{W<2.5}}
+\]
+
+}
+\end{document}
